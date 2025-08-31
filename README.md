@@ -1,3 +1,5 @@
+# DZ copy of kaspa-full-node    usage branch for the purposes of using the code      locally, do not merge branch
+
 # Kaspa Full Node Mining Quick Start
 
 Quick start to launch a full node mining environment for KAS(Kaspa) with Stratum via docker-compose.
