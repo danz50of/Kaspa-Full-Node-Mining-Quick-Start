@@ -1,17 +1,17 @@
+version: "3.8"
 services:
-  kaspad:
-    image:  kaspad
-    volumes:
-      - './data:/root/.kaspad'
-      - './data/kaspad/:/root/data'
-    command:
-      - '/app/kaspad'
-    ports:
-      - '16110:16110'
-    user: root
-    restart: always
-
   kstratum:
-    image: kstratum
+    build: ./kstratum
+    container_name: kstratum
+    restart: unless-stopped
     ports:
-      - 16112:16112
+      - "16112:16112"  # Stratum port
+    environment:
+      - KASPAD_HOST=kaspad
+      - KASPAD_PORT=16110
+    networks:
+      - kas20_default
+
+networks:
+  kas20_default:
+    external: true
